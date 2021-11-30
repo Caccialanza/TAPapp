@@ -16,7 +16,9 @@
     </div>
         
     <form method="post" action="login.php">
-        <?php //include('errors.php'); ?>
+        <?php //include('errors.php'); 
+            if(!isset($_SESSION['nickname'])){
+        ?>
         <div class="input-group">
             <label>E-mail</label>
             <input type="text" name="email" >
@@ -31,6 +33,17 @@
         <p>
             Not yet a member? <a href="register.php">Sign up</a>
         </p>
+        <?php
+            }
+            else{
+        ?>
+        <div class="input-group">
+            <label>Hi <?php echo $_SESSION['nickname'];?>! Welcome back!</label>
+            <input type=button onClick="location.href='index.php'" value='Return'>
+        </div>
+        <?php
+            }
+        ?>
     </form>
     </body>
 </html>

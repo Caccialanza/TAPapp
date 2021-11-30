@@ -1,5 +1,4 @@
 <?php
-
     //CREAZIONE DB
     $host = "db";
     $root = "root";
@@ -158,7 +157,7 @@
     /////////////////////////////////////////////////
 
     if (isset($_POST['login_user'])) {
-        session_start();
+        
         $email =  $_POST['email'];
         $password = $_POST['password'];
     
@@ -177,7 +176,8 @@
         if($stmt->rowCount() > 0){
             $row = $stmt->fetch(PDO::FETCH_ASSOC);
             $_SESSION['nickname'] = $row['nickname'];
-            header("Location:index.php");
+            //echo $_SESSION['nickname'];
+            //header("Location:index.php");
             //exit();
         }
         //if (count($errors) == 0) {
